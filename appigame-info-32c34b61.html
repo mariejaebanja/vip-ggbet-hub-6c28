@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 轻量导航式介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #faf8f5;
+            color: #2c2b28;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 顶栏导航 ===== */
+        .top-nav {
+            padding: 20px 0;
+            border-bottom: 1px solid #e8e3dc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            color: #3d3a35;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5b5751;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #a67b4b;
+            border-bottom-color: #a67b4b;
+        }
+
+        /* ===== Hero 简洁区 ===== */
+        .hero {
+            padding: 72px 0 56px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #2c2b28;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: #5f5b55;
+        }
+
+        .hero .highlight-link {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 8px 0;
+            font-size: 1.05rem;
+            color: #8b6b4a;
+            border-bottom: 1px dashed #cbb99f;
+            text-decoration: none;
+            transition: border-color 0.2s;
+        }
+
+        .hero .highlight-link:hover {
+            border-bottom-style: solid;
+            border-color: #8b6b4a;
+        }
+
+        /* ===== 模块通用 ===== */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 380;
+            letter-spacing: 0.02em;
+            margin-bottom: 32px;
+            color: #2f2d29;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 48px;
+            height: 2px;
+            background: #d5c7b3;
+        }
+
+        .section-sub {
+            color: #6b6660;
+            margin-bottom: 32px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== 三个场景模块 ===== */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px 24px 32px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid #ece7e0;
+            transition: box-shadow 0.25s, transform 0.2s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 8px 20px rgba(44, 43, 40, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .scene-card h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            margin-bottom: 12px;
+            color: #3d3a35;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #5b5751;
+        }
+
+        .scene-icon {
+            display: inline-block;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        /* ===== 引用/提示框 ===== */
+        .notice-box {
+            background: #f3efe9;
+            border-left: 4px solid #cbb99f;
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin: 48px 0;
+        }
+
+        .notice-box p {
+            font-size: 0.98rem;
+            color: #4a4641;
+        }
+
+        .notice-box strong {
+            font-weight: 500;
+            color: #2f2d29;
+        }
+
+        /* ===== FAQ 摘要 ===== */
+        .faq-mini {
+            margin: 40px 0 56px;
+        }
+
+        .faq-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #e8e3dc;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 480;
+            font-size: 1.05rem;
+            color: #2f2d29;
+            margin-bottom: 6px;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #6b6660;
+            padding-left: 4px;
+        }
+
+        /* ===== 页脚 ===== */
+        footer {
+            border-top: 1px solid #e8e3dc;
+            padding: 32px 0 40px;
+            margin-top: 16px;
+            text-align: center;
+            color: #7d7770;
+            font-size: 0.88rem;
+        }
+
+        footer a {
+            color: #7d7770;
+            text-decoration: none;
+            border-bottom: 1px dashed #ccc5bc;
+        }
+
+        footer a:hover {
+            border-bottom-style: solid;
+            color: #5b5751;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 820px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 48px 0 40px;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .notice-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- 顶栏导航 -->
+        <nav class="top-nav">
+            <span class="nav-brand">爱游戏</span>
+            <ul class="nav-links">
+                <li><a href="#intro">介绍</a></li>
+                <li><a href="#scenes">场景</a></li>
+                <li><a href="#faq">说明</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero 简洁区 -->
+        <section class="hero" id="intro">
+            <h1>游戏 · 日常的延伸</h1>
+            <p>
+                不必把游戏看作生活的对立面，它更像是午后一杯茶、傍晚一段散步—— 
+                一种可以随时拿起的陪伴。<a href="https://appigame.com" class="highlight-link">爱游戏</a>，就是这么个地方。
+            </p>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <section id="scenes">
+            <h2 class="section-title">三个真实场景</h2>
+            <p class="section-sub">这些瞬间，或许你也有过</p>
+
+            <div class="scene-grid">
+                <div class="scene-card">
+                    <span class="scene-icon">🛋️</span>
+                    <h3>在沙发里放空</h3>
+                    <p>
+                        结束一天的工作，陷进沙发，随便打开一个轻松的游戏。不需要胜负，只想有个安静的声音陪着。这时候，<a href="https://appigame.com" style="color:#8b6b4a; text-decoration:underline 1px dashed; text-underline-offset:3px;">爱游戏</a> 就是那个不着急、不催促的角落。
+                    </p>
+                </div>
+                <div class="scene-card">
+                    <span class="scene-icon">☕</span>
+                    <h3>周末的咖啡时间</h3>
+                    <p>
+                        把手机搁在窗边，一边喝咖啡一边慢慢看几段游戏视频，或者翻翻大家的讨论。没有任务，没有时限——这不是“浪费时间”，而是给脑子换一换空气。
+                    </p>
+                </div>
+                <div class="scene-card">
+                    <span class="scene-icon">🌙</span>
+                    <h3>深夜的一小会儿</h3>
+                    <p>
+                        洗完澡，躺在床上，不想刷短视频，也不想看沉重的内容。打开一个熟悉的老游戏或者听一段游戏音乐，像翻开一本旧书——安稳、熟悉、舒服。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 提示框 / 引用块 -->
+        <div class="notice-box">
+            <p>
+                <strong>一点小提醒：</strong> 游戏本身是工具，用它来放松、社交、创造，都很好。关键是找到适合自己的节奏，不必被别人的玩法或者进度裹挟。如果你也想找一个干净、不吵闹的游戏社区，<a href="https://appigame.com" style="color:#7a5e3f; text-decoration:underline; text-underline-offset:3px;">爱游戏</a> 可能刚好合适。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要（常见说明） -->
+        <section class="faq-mini" id="faq">
+            <h2 class="section-title">常见说明</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">❓ 这里的游戏都是新出的吗？</div>
+                <div class="faq-a">不全是。有新的独立作品，也有不少经典的老游戏。重要的是氛围，而不是追新。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">❓ 需要注册或者付费才能看内容吗？</div>
+                <div class="faq-a">大部分信息是公开的，网站本身没有设置付费墙。你可以先逛逛，再决定要不要参与更多。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">❓ 适合完全不玩游戏的新手吗？</div>
+                <div class="faq-a">很适合。很多讨论都是从入门者的角度出发的，没有复杂的术语堆砌，大家也愿意分享基础心得。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">❓ 怎么找到更多类似的内容？</div>
+                <div class="faq-a">不妨从 <a href="https://appigame.com" style="color:#7a5e3f; text-decoration:underline; text-underline-offset:3px;">爱游戏</a> 的首页开始，按照兴趣标签或者推荐列表慢慢翻，会有不少惊喜。</div>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>
+                由 <a href="https://appigame.com">爱游戏</a> 带来的轻量导航页 · 内容不定期更新
+            </p>
+            <p style="margin-top: 8px; font-size: 0.82rem; color: #969089;">
+                设计上以米白为底，希望给你一种安静、安心的阅读感受
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
