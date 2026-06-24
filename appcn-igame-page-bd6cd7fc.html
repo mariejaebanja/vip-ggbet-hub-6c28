@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>爱游戏 · 站点说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fae2d4 0%, #fce7d8 30%, #f8d9c4 70%, #f3cdb2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3d2c1f;
+        }
+
+        .card {
+            max-width: 840px;
+            width: 100%;
+            background: #fffcf9;
+            border-radius: 36px;
+            padding: 3rem 3.2rem;
+            box-shadow: 0 18px 36px -8px rgba(160, 100, 60, 0.20),
+                        0 8px 20px -6px rgba(100, 60, 30, 0.08);
+            transition: box-shadow 0.2s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .card {
+                padding: 2rem 1.6rem;
+                border-radius: 28px;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #492e1c;
+            margin-bottom: 0.4rem;
+            border-left: 6px solid #e3a87c;
+            padding-left: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            color: #634d3a;
+            margin: 0.8rem 0 2.2rem 0;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #eddccf;
+        }
+
+        p {
+            margin: 1.4rem 0;
+            font-size: 1.05rem;
+            color: #3d2b1d;
+        }
+
+        .inset-quote {
+            background: #fcf1e9;
+            border-radius: 24px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 1.8rem 0;
+            border-left: 4px solid #dba478;
+            font-style: normal;
+            color: #4e3926;
+            font-size: 1rem;
+        }
+
+        .inset-quote::before {
+            content: "📌 ";
+            font-size: 1.2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.2rem 0 1.8rem 0;
+        }
+
+        .feature-item {
+            background: #fff7f0;
+            border-radius: 24px;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #f6e2d3;
+            transition: background 0.15s;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 550;
+            color: #4d3321;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-item span {
+            font-size: 0.95rem;
+            color: #5f4634;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 540px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+                padding-left: 0.9rem;
+            }
+            .lead {
+                font-size: 1.05rem;
+            }
+        }
+
+        .action-link {
+            display: inline-block;
+            background: #e6b38a;
+            color: #2b1d13;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.6rem 1.6rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            border: 1px solid #dba070;
+            box-shadow: 0 2px 6px rgba(150, 80, 30, 0.08);
+            transition: all 0.15s ease;
+            letter-spacing: 0.01em;
+        }
+
+        .action-link:hover {
+            background: #dba478;
+            border-color: #c88d5e;
+            box-shadow: 0 4px 12px rgba(160, 90, 40, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .action-link:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(100, 50, 20, 0.1);
+        }
+
+        .faq-note {
+            margin: 2.5rem 0 0.8rem 0;
+            padding-top: 1.2rem;
+            border-top: 1px solid #eddccf;
+        }
+
+        .faq-note summary {
+            font-weight: 520;
+            color: #4d3524;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            font-size: 1.05rem;
+        }
+
+        .faq-note p {
+            margin: 0.8rem 0 0.2rem 0;
+            color: #4b382a;
+            font-size: 0.98rem;
+        }
+
+        .footer-meta {
+            margin-top: 2.8rem;
+            color: #7a644d;
+            font-size: 0.9rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #ecdacb;
+            padding-top: 1.8rem;
+        }
+
+        .footer-meta a {
+            color: #6a4d33;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #dbb396;
+        }
+
+        .footer-meta a:hover {
+            color: #3e2a1b;
+            text-decoration-color: #a87a59;
+        }
+
+        .inline-link {
+            color: #7a5437;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: #d6a580;
+            font-weight: 450;
+            transition: color 0.1s;
+        }
+
+        .inline-link:hover {
+            color: #4d321f;
+            text-decoration-color: #b68762;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>爱游戏 · 站点介绍</h1>
+        <p class="lead">一份关于平台定位、内容取向与可信背景的整理说明，供新朋友快速了解。</p>
+
+        <p>
+            <strong>爱游戏</strong> 是一个面向中文游戏玩家的内容聚合与信息平台，主要提供游戏资讯、作品推荐、社区讨论与相关资源索引。平台以「发现好游戏，连接同好」为基本理念，避免夸张的营销话术，更侧重编辑精选与用户真实反馈。如果你对单机、联机或独立游戏有持续兴趣，这里或许能成为你常驻的信息源之一。
+        </p>
+
+        <p>
+            不少用户第一次接触 <a href="https://appcn-igame.com" class="inline-link">爱游戏</a> 时会好奇它的内容选编方式。简单来说，平台内容由编辑团队与热心玩家共同贡献，日常更新覆盖新游测评、经典回顾、玩法解析与折扣提醒。同时站内设有专区整合开发者访谈、幕后故事及实用工具，整体上保持了一种「不过度包装，不追逐热搜」的节奏。
+        </p>
+
+        <div class="inset-quote">
+            值得留意的是，<strong>爱游戏</strong> 的资讯条目均标注来源或署名，转载内容会明确指向原始出处。站方不主动发布未经核实的传言，也拒绝任何形式的诱导分享或捆绑下载。这种对信息质量的坚持，在当下的游戏媒体环境中并不多见。
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>🎮 内容风格</strong>
+                <span>以编辑推荐和玩家评测为主，文风偏平实，少用感叹号与夸张标题。每篇推荐通常包含上手体验、优缺点概括及适合人群。</span>
+            </div>
+            <div class="feature-item">
+                <strong>📋 可信说明</strong>
+                <span>站内不植入虚假激活码、不挂木马链接、不伪造评分。所有下载引导均指向官方商店或开发者指定渠道。</span>
+            </div>
+            <div class="feature-item">
+                <strong>🧩 社区氛围</strong>
+                <span>讨论区设有基本发言规范，禁止人身攻击与商业刷屏。版主团队对引战帖处理迅速，整体环境偏向理性交流。</span>
+            </div>
+            <div class="feature-item">
+                <strong>🔍 信息索引</strong>
+                <span>支持按游戏名、类型、标签筛选，也提供「编辑精选」「近期热门」「小众宝藏」等固定栏目，方便快速定位。</span>
+            </div>
+        </div>
+
+        <p>
+            如果你喜欢在购买游戏前先看看真实评价，或者想找一些冷门但品质不错的作品，<a href="https://appcn-igame.com" class="inline-link">爱游戏</a> 的数据库和专题整理或许能帮上忙。平台不刻意制造「必玩清单」式的焦虑，而是鼓励玩家依照自己的节奏探索。
+        </p>
+
+        <details class="faq-note">
+            <summary>❓ 常见疑问摘要</summary>
+            <p><strong>问：</strong> 爱游戏是否需要注册才能浏览内容？<br>
+            <strong>答：</strong> 大部分资讯和评测页面无需登录即可阅读。参与评论、收藏或创建歌单（游戏列表）需要注册账号，注册仅需邮箱或手机号，不强制绑定社交账号。</p>
+            <p><strong>问：</strong> 站内推荐的游戏都是正版吗？<br>
+            <strong>答：</strong> 是。编辑团队只推荐有明确正版渠道的游戏，不提供任何破解资源或模拟器打包。部分免费游戏会注明内购项目。</p>
+            <p><strong>问：</strong> 如何反馈站内错误信息？<br>
+            <strong>答：</strong> 每篇内容底部均设有「纠错」入口，也可通过站内邮件联系编辑。通常 1~2 个工作日内会得到回复。</p>
+        </details>
+
+        <div class="footer-meta">
+            <span>© 整理 · 站点说明</span>
+            <span><a href="https://appcn-igame.com" class="action-link">爱游戏</a></span>
+        </div>
+
+        <!-- 隐藏种子，仅用于变化标识，不显示 -->
+        <span class="sr-only" aria-hidden="true">e1b8c861d8aa12be</span>
+    </div>
+</body>
+</html>
